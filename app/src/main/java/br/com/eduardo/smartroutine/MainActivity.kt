@@ -24,5 +24,3 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
-//robert
-// 1234
