@@ -10,6 +10,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import br.com.eduardo.smartroutine.R
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 
@@ -24,12 +26,12 @@ fun Home(){
                 TopAppBar(
                     colors = TopAppBarDefaults.topAppBarColors(
                         containerColor = MaterialTheme.colorScheme.primaryContainer,
-                        titleContentColor = MaterialTheme.colorScheme.primary,
+                        titleContentColor = MaterialTheme.colorScheme.primary
                     ),
                     title = {
                         Box(
                             modifier = Modifier.fillMaxSize(),
-                            contentAlignment = Alignment.Center,
+                            contentAlignment = Alignment.Center
                         ) {
                             Image(
                                 painter = painterResource(id = R.drawable.logo_2_removebg_preview),
@@ -39,9 +41,29 @@ fun Home(){
                         }
                     }
                 )
+            },
+            floatingActionButton = {
+                FloatingActionButton(
+                    onClick = {
+                    }
+                ) {
+                    Image(
+                        painter = painterResource(id = R.drawable.icon),
+                        contentDescription = null,
+                        modifier = Modifier.scale(3f)
+                    )
+                }
             }
         ) {
+            paddingValues ->  
+            Column(
+                Modifier.fillMaxSize().padding(
+                    vertical = paddingValues.calculateTopPadding(),
+                    horizontal = 16.dp
+                )
+            ){
 
+            }
         }
     }
 }
