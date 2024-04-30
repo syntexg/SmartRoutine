@@ -9,9 +9,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import br.com.eduardo.smartroutine.R
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
@@ -19,19 +16,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.res.stringResource
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.material.icons.materialIcon
 import androidx.compose.material3.BottomAppBar
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.ui.res.painterResource
-
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -50,7 +35,7 @@ fun Home() {
                     ) {
                         Image(
                             painter = painterResource(id = R.drawable.logo_2_removebg_preview),
-                            contentDescription = null,
+                            contentDescription = "SmartRoutine TopApp Logo",
                             modifier = Modifier.scale(0.8f)
                         )
                     }
@@ -64,7 +49,7 @@ fun Home() {
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.icon),
-                    contentDescription = "",
+                    contentDescription = "Floating button icon",
                     modifier = Modifier.scale(3f)
                 )
             }
@@ -94,10 +79,3 @@ fun Home() {
         }
     }
 }
-
-data class BottomNavItem(
-    val icon: ImageVector,
-    val label: String,
-    val selected: Boolean,
-    val onClick: () -> Unit
-)
