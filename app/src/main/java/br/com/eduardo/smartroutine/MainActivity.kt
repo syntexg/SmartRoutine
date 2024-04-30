@@ -14,7 +14,9 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             val navController = rememberNavController()
-            AppTheme {
+            AppTheme (
+                useDarkTheme = true
+            ){
                 NavHost(
                     navController = navController,
                     startDestination = "Home"
