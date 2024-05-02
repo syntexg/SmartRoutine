@@ -3,7 +3,6 @@ package br.com.eduardo.smartroutine.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
@@ -13,10 +12,14 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.ui.unit.dp
 import androidx.compose.material3.BottomAppBar
+import androidx.compose.material.icons.filled.Home
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.runtime.*
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun Home() {
+    var selectedItem by remember { mutableStateOf(0) }
     Scaffold(
         topBar = {
             TopAppBar(
@@ -52,10 +55,27 @@ fun Home() {
         },
         bottomBar = {
             BottomAppBar(
-                modifier = Modifier.height(48.dp),
                 containerColor = MaterialTheme.colorScheme.primaryContainer,
                 contentColor = MaterialTheme.colorScheme.primaryContainer
             ) {
+                NavigationBar(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                ) {
+                    NavigationBarItem(
+                        modifier = Modifier.scale(1.3f),
+                        icon = { Icon(Icons.Default.Home, contentDescription = "Home") },
+                        label = { Text("Home") },
+                        selected = selectedItem == 0,
+                        onClick = { selectedItem = 0 }
+                    )
+                    NavigationBarItem(
+                        modifier = Modifier.scale(1.3f),
+                        icon = { Icon(Icons.Default.AccountCircle, contentDescription = "Profile") },
+                        label = { Text("Profile") },
+                        selected = selectedItem == 1,
+                        onClick = { selectedItem = 1 }
+                    )
+                }
             }
         }
     ) { paddingValues ->
