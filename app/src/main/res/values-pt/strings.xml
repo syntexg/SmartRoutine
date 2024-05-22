@@ -2,10 +2,10 @@
 <resources>
     <string name="title_login_screen">Auntenticação</string>
     <string name="title_register_screen">Cadastrar novo usuário</string>
-    <string name="input_email">Email</string>
-    <string name="input_password">Senha</string>
+    <string name="input_task_name">Nome da tarefa</string>
+    <string name="input_task_description">Descrição</string>
     <string name="input_repeat_password">Repitir senha</string>
     <string name="button_enter">Entrar</string>
     <string name="welcome_message">Bem-vindo ao nosso sistema!</string>
-    <string name="register_message">Seu registro foi realizado com sucesso</string>
+    <string name="created_task">Sua tarefa foi criada com sucesso.</string>
 </resources>
