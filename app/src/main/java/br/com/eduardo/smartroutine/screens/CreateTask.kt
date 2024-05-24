@@ -12,14 +12,12 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.*
 import androidx.compose.ui.unit.dp
 import androidx.compose.runtime.*
-import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
-import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.ui.platform.LocalContext
 import br.com.eduardo.smartroutine.model.Task
@@ -29,8 +27,6 @@ import kotlinx.coroutines.launch
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun CreateTask(navController: NavController) {
-    var selectedItem by remember { mutableStateOf(0) }
-    val selectedColor = Color(android.graphics.Color.parseColor("#3D1365"))
     var taskName by remember { mutableStateOf("") }
     var descriptionTask by remember { mutableStateOf("") }
     val scope = rememberCoroutineScope()

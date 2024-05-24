@@ -15,12 +15,6 @@ import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.runtime.*
 import androidx.compose.ui.graphics.Color
-import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.filled.AccountCircle
-import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.input.ImeAction
-import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
