@@ -17,9 +17,14 @@ import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
-import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import androidx.compose.material.icons.filled.AccountCircle
+import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.ui.platform.LocalContext
+import br.com.eduardo.smartroutine.model.Task
+import br.com.eduardo.smartroutine.repository.TaskRepository
+import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -28,9 +33,10 @@ fun CreateTask(navController: NavController) {
     val selectedColor = Color(android.graphics.Color.parseColor("#3D1365"))
     var taskName by remember { mutableStateOf("") }
     var descriptionTask by remember { mutableStateOf("") }
-    var repeatPasswordValue by remember { mutableStateOf("") }
     val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
+    val localContext = LocalContext.current
+    val successMessage = stringResource(R.string.created_task)
 
     Scaffold(
         topBar = {
@@ -63,6 +69,22 @@ fun CreateTask(navController: NavController) {
         floatingActionButton = {
             FloatingActionButton(
                 onClick = {
+                    val task = Task(
+                        id = null,
+                        task = taskName,
+                        description = descriptionTask
+                    )
+                    val repository = TaskRepository(localContext)
+                    val id = repository.insert(task)
+                    if (id > 0L) {
+                        scope.launch {
+                            snackbarHostState.showSnackbar(
+                                message = successMessage,
+                                duration = SnackbarDuration.Long,
+                                withDismissAction = true
+                            )
+                        }
+                    }
                 }
             ) {
                 Icon(
