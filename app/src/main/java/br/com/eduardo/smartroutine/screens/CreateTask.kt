@@ -35,6 +35,11 @@ fun CreateTask(navController: NavController) {
     val successMessage = stringResource(R.string.created_task)
 
     Scaffold(
+        snackbarHost = {
+            SnackbarHost (
+                snackbarHostState
+            )
+        },
         topBar = {
             TopAppBar(
                 colors = TopAppBarDefaults.topAppBarColors(
